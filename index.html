@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zentrix | Restaurant Mobile Apps</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+color:#111827;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+:root{
+--primary:#2563eb;
+--secondary:#1e40af;
+--light:#eff6ff;
+--dark:#111827;
+--gray:#6b7280;
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#fff;
+z-index:1000;
+box-shadow:0 2px 20px rgba(0,0,0,.06);
+}
+
+.navbar{
+height:80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:800;
+font-size:1.4rem;
+}
+
+.logo-icon{
+width:42px;
+height:42px;
+border-radius:12px;
+background:linear-gradient(135deg,#2563eb,#60a5fa);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-weight:700;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#111827;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--primary);
+}
+
+.demo-btn{
+padding:12px 22px;
+background:var(--primary);
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.demo-btn:hover{
+background:#1d4ed8;
+}
+
+.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+padding-top:140px;
+padding-bottom:100px;
+background:
+linear-gradient(
+180deg,
+#eff6ff 0%,
+#ffffff 100%
+);
+}
+
+.hero-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:60px;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:800;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:var(--primary);
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:1.8;
+color:var(--gray);
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+padding:15px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-secondary{
+background:white;
+border:2px solid #dbeafe;
+padding:15px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+color:#111827;
+}
+
+.hero-list{
+margin-top:35px;
+display:grid;
+gap:15px;
+}
+
+.hero-list div{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:500;
+}
+
+.hero-phone{
+display:flex;
+justify-content:center;
+}
+
+.phone{
+width:320px;
+height:640px;
+background:black;
+border-radius:45px;
+padding:18px;
+box-shadow:
+0 20px 60px rgba(37,99,235,.2);
+position:relative;
+}
+
+.phone-screen{
+width:100%;
+height:100%;
+border-radius:30px;
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#60a5fa
+);
+padding:30px;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.phone-screen h3{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.phone-screen p{
+color:white;
+line-height:1.7;
+}
+
+/* STATS */
+
+.stats{
+padding:80px 0;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.stat-card{
+background:white;
+border-radius:18px;
+padding:35px;
+text-align:center;
+box-shadow:
+0 10px 40px rgba(0,0,0,.05);
+}
+
+.stat-card h2{
+font-size:2.4rem;
+color:var(--primary);
+margin-bottom:10px;
+}
+
+.stat-card p{
+color:var(--gray);
+}
+
+/* TRUST BAR */
+
+.trust{
+padding:70px 0;
+background:#f8fafc;
+text-align:center;
+}
+
+.trust h2{
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+.trust p{
+max-width:700px;
+margin:auto;
+color:var(--gray);
+line-height:1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+.hero-wrapper{
+grid-template-columns:1fr;
+}
+
+.hero{
+text-align:center;
+}
+
+.hero-list{
+justify-content:center;
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.nav-links{
+position:fixed;
+top:80px;
+left:-100%;
+width:100%;
+height:100vh;
+background:white;
+flex-direction:column;
+padding:40px;
+transition:.4s;
+}
+
+.nav-links.active{
+left:0;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.demo-btn{
+display:none;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.3rem;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.phone{
+width:280px;
+height:560px;
+}
+
+}
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.5rem;
+margin-bottom:15px;
+font-weight:800;
+}
+
+.section-title p{
+max-width:700px;
+margin:auto;
+color:#6b7280;
+line-height:1.8;
+}
+
+.comparison{
+padding:120px 0;
+background:#f8fafc;
+}
+
+.compare-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+}
+
+.compare-card{
+padding:40px;
+border-radius:24px;
+background:white;
+box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+.compare-card h3{
+margin-bottom:25px;
+font-size:1.5rem;
+}
+
+.compare-card ul{
+list-style:none;
+}
+
+.compare-card li{
+padding:15px 0;
+font-size:1rem;
+border-bottom:1px solid #eee;
+}
+
+.negative{
+border-top:6px solid #ef4444;
+}
+
+.positive{
+border-top:6px solid #10b981;
+}
+
+.features{
+padding:120px 0;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.feature-card{
+padding:35px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+}
+
+.icon{
+width:70px;
+height:70px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+background:#eff6ff;
+margin-bottom:20px;
+}
+
+.feature-card h3{
+margin-bottom:12px;
+}
+
+.feature-card p{
+color:#6b7280;
+line-height:1.8;
+}
+
+@media(max-width:991px){
+
+.compare-grid{
+grid-template-columns:1fr;
+}
+
+.feature-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.feature-grid{
+grid-template-columns:1fr;
+}
+
+.section-title h2{
+font-size:2rem;
+}
+
+}
+
+.benefits{
+padding:120px 0;
+background:#f8fafc;
+}
+
+.benefit-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.benefit-card{
+background:white;
+padding:35px;
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.benefit-card:hover{
+transform:translateY(-10px);
+}
+
+.benefit-icon{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.benefit-card h3{
+margin-bottom:12px;
+}
+
+.benefit-card p{
+color:#6b7280;
+line-height:1.8;
+}
+
+.process{
+padding:120px 0;
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.step-card{
+position:relative;
+padding:40px 30px;
+background:white;
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+text-align:center;
+overflow:hidden;
+}
+
+.step-number{
+font-size:3rem;
+font-weight:800;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+.step-card h3{
+margin-bottom:15px;
+}
+
+.step-card p{
+color:#6b7280;
+line-height:1.8;
+}
+
+.why-zentrix{
+padding:120px 0;
+background:#f8fafc;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.why-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.why-card:hover{
+transform:translateY(-8px);
+}
+
+.why-card h3{
+margin-bottom:15px;
+font-size:1.1rem;
+}
+
+.why-card p{
+color:#6b7280;
+line-height:1.8;
+}
+
+@media(max-width:991px){
+
+.benefit-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.process-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.why-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.benefit-grid,
+.process-grid,
+.why-grid{
+grid-template-columns:1fr;
+}
+
+}
+.testimonials{
+padding:120px 0;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+.testimonial-card{
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.testimonial-card p{
+color:#6b7280;
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.author span{
+display:block;
+color:#6b7280;
+font-size:0.9rem;
+}
+
+.faq{
+padding:120px 0;
+background:#f8fafc;
+}
+
+.faq-item{
+background:#fff;
+padding:25px;
+border-radius:16px;
+margin-bottom:15px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.faq-question{
+font-weight:600;
+}
+
+.faq-answer{
+display:none;
+margin-top:10px;
+color:#6b7280;
+}
+
+.cta{
+padding:120px 0;
+}
+
+.cta-box{
+background:#2563eb;
+color:white;
+padding:50px;
+border-radius:25px;
+margin-bottom:40px;
+}
+
+.cta-btn{
+background:#fff;
+color:#2563eb;
+padding:12px 25px;
+border:none;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+}
+
+.form-box{
+background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.form-box input,
+.form-box textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+.form-box button{
+background:#2563eb;
+color:white;
+padding:12px;
+width:100%;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.footer{
+background:#111827;
+color:white;
+padding:60px 0;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.footer ul{
+list-style:none;
+}
+
+.footer li{
+margin-bottom:10px;
+color:#9ca3af;
+}
+
+.copyright{
+text-align:center;
+margin-top:40px;
+color:#9ca3af;
+}
+
+@media(max-width:991px){
+.testimonial-grid,
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.cta-box{
+text-align:center;
+}
+}
+.logo-img{
+  height: 80px;
+  width: 200px;
+  /* object-fit: contain; */
+}
+.whatsapp-float{
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: 0.3s ease;
+
+  /* animation */
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* icon */
+.whatsapp-float img{
+  width: 32px;
+  height: 32px;
+}
+
+/* hover effect */
+.whatsapp-float:hover{
+  transform: scale(1.15);
+  animation: none; /* stop floating on hover */
+}
+
+/* floating animation */
+@keyframes floatUpDown{
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-5px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+/* pulse glow ring */
+.whatsapp-float::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%{
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+  <img src="assets/logo.png" alt="Zentrix Logo" class="logo-img">
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#">Home</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+<li><a href="#faq">FAQ</a></li>
+
+</ul>
+
+<button class="demo-btn">
+Book Free Demo
+</button>
+
+<div class="menu-toggle" id="menuBtn">
+☰
+</div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-wrapper">
+
+<div>
+
+<h1>
+Powering
+<span>Smarter Businesses</span>
+</h1>
+
+<p>
+Own your customers and own your profits.
+Launch your own branded restaurant app and
+accept direct orders without paying commissions
+to third-party platforms.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn-primary">
+Book Free Demo
+</a>
+
+<a href="#" class="btn-secondary">
+View Features
+</a>
+
+</div>
+
+<div class="hero-list">
+
+<div>✅ More Direct Orders</div>
+<div>✅ More Reservations</div>
+<div>✅ Customer Loyalty</div>
+<div>✅ Better Brand Control</div>
+<div>✅ Increased Revenue</div>
+
+</div>
+
+</div>
+
+<div class="hero-phone">
+
+<div class="phone">
+
+<div class="phone-screen">
+
+<h3>Zentrix Restaurant App</h3>
+
+<p>
+Online Ordering
+<br><br>
+Table Reservations
+<br><br>
+Loyalty Rewards
+<br><br>
+Push Notifications
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h2>+40%</h2>
+<p>Repeat Customers</p>
+</div>
+
+<div class="stat-card">
+<h2>0%</h2>
+<p>Commission Fees</p>
+</div>
+
+<div class="stat-card">
+<h2>50+</h2>
+<p>Apps Delivered</p>
+</div>
+
+<div class="stat-card">
+<h2>99%</h2>
+<p>Client Satisfaction</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="trust">
+
+<div class="container">
+
+<h2>
+Trusted by Restaurants,
+Cafes & Hospitality Businesses
+</h2>
+
+<p>
+Take control of your restaurant business and build
+direct relationships with customers through your
+own branded mobile application.
+</p>
+
+</div>
+
+</section>
+
+<section class="comparison">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Stop Losing Customers To Third-Party Platforms</h2>
+<p>Take control of your business and keep more of what you earn.</p>
+</div>
+
+<div class="compare-grid">
+
+<div class="compare-card negative">
+
+<h3>Third Party Platforms</h3>
+
+<ul>
+<li>❌ 15%–30% Commission</li>
+<li>❌ Customer Data Belongs To Platform</li>
+<li>❌ Limited Branding</li>
+<li>❌ Limited Customer Relationship</li>
+<li>❌ Marketplace Dependency</li>
+</ul>
+
+</div>
+
+<div class="compare-card positive">
+
+<h3>Your Own App</h3>
+
+<ul>
+<li>✅ 0% Commission</li>
+<li>✅ Customer Data Ownership</li>
+<li>✅ Full Brand Control</li>
+<li>✅ Direct Customer Relationships</li>
+<li>✅ Higher Profit Margins</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</section>
+<section class="features" id="features">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Everything Your Restaurant Needs In One App
+</h2>
+
+<p>
+Comprehensive features designed specifically
+for restaurants and hospitality businesses.
+</p>
+
+</div>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="icon">📱</div>
+<h3>Custom Restaurant Apps</h3>
+<p>Fully branded Android & iOS applications.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🛒</div>
+<h3>Online Ordering</h3>
+<p>Accept orders directly from customers.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🍽️</div>
+<h3>Table Reservation</h3>
+<p>Instant booking with reminders.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🎁</div>
+<h3>Loyalty Program</h3>
+<p>Reward repeat customers automatically.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🔔</div>
+<h3>Push Notifications</h3>
+<p>Send offers and promotions instantly.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">📋</div>
+<h3>Digital Menu</h3>
+<p>Beautiful menu experience with images.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">📷</div>
+<h3>QR Menu</h3>
+<p>Contactless ordering and browsing.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">📊</div>
+<h3>Analytics Dashboard</h3>
+<p>Track sales and customer behavior.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">👥</div>
+<h3>Customer Management</h3>
+<p>Manage profiles and order history.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">💳</div>
+<h3>Payment Gateway</h3>
+<p>Secure payment integration.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🤖</div>
+<h3>Android App</h3>
+<p>Native Android application.</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🍏</div>
+<h3>iOS App</h3>
+<p>Native iPhone application.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="benefits">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Why Restaurant Owners Choose Zentrix</h2>
+<p>
+Transform your restaurant business with technology
+that drives real results.
+</p>
+</div>
+
+<div class="benefit-grid">
+
+<div class="benefit-card">
+<div class="benefit-icon">📈</div>
+<h3>Increase Repeat Orders</h3>
+<p>Build loyalty through rewards and personalized offers.</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">💰</div>
+<h3>Save Commission Costs</h3>
+<p>Keep more revenue with direct customer orders.</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">🏆</div>
+<h3>Stronger Brand Presence</h3>
+<p>Your customers interact directly with your brand.</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">📊</div>
+<h3>Better Customer Insights</h3>
+<p>Understand customer behavior and preferences.</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">📢</div>
+<h3>Faster Communication</h3>
+<p>Notify customers instantly about offers and events.</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">🚀</div>
+<h3>Business Growth</h3>
+<p>Scale with modern technology and data-driven decisions.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="process" id="process">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Launch Your Restaurant App In 4 Simple Steps</h2>
+<p>
+From concept to launch in weeks, not months.
+</p>
+</div>
+
+<div class="process-grid">
+
+<div class="step-card">
+
+<div class="step-number">01</div>
+
+<h3>Consultation</h3>
+
+<p>
+We understand your business needs, target audience and goals.
+</p>
+
+</div>
+
+<div class="step-card">
+
+<div class="step-number">02</div>
+
+<h3>App Design</h3>
+
+<p>
+Beautiful branded UI/UX tailored to your restaurant.
+</p>
+
+</div>
+
+<div class="step-card">
+
+<div class="step-number">03</div>
+
+<h3>Development & Testing</h3>
+
+<p>
+Robust app development with rigorous quality assurance.
+</p>
+
+</div>
+
+<div class="step-card">
+
+<div class="step-number">04</div>
+
+<h3>Launch & Growth</h3>
+
+<p>
+Store publishing, training and ongoing support.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="why-zentrix">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Why Choose Zentrix Technologies</h2>
+
+<p>
+Trusted partner for restaurant digital transformation.
+</p>
+
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+<h3>🎨 Modern UI/UX</h3>
+<p>Beautiful intuitive interfaces customers love.</p>
+</div>
+
+<div class="why-card">
+<h3>🔒 Secure & Scalable</h3>
+<p>Enterprise-grade security and growth-ready infrastructure.</p>
+</div>
+
+<div class="why-card">
+<h3>🎧 Dedicated Support</h3>
+<p>24/7 assistance whenever you need help.</p>
+</div>
+
+<div class="why-card">
+<h3>💸 Affordable Packages</h3>
+<p>Flexible pricing for restaurants of all sizes.</p>
+</div>
+
+<div class="why-card">
+<h3>⚡ Fast Delivery</h3>
+<p>Launch in weeks instead of months.</p>
+</div>
+
+<div class="why-card">
+<h3>🛠 Custom Solutions</h3>
+<p>Tailored specifically for your business needs.</p>
+</div>
+
+<div class="why-card">
+<h3>☁ Cloud Based</h3>
+<p>Reliable infrastructure with excellent uptime.</p>
+</div>
+
+<div class="why-card">
+<h3>🏅 Industry Expertise</h3>
+<p>Years of experience in hospitality technology.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="testimonials" id="testimonials">
+
+<div class="container">
+
+<div class="section-title">
+<h2>What Our Clients Say</h2>
+<p>Real results from real restaurant owners.</p>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<p>
+"Zentrix helped us launch our app in just 3 weeks. Our direct orders increased by 45% and we are saving thousands in commissions."
+</p>
+
+<div class="author">
+<strong>Rajesh Kumar</strong>
+<span>Owner, Spice Garden Restaurant</span>
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>
+"The best decision we made. Our customers now order directly and loyalty has improved massively."
+</p>
+
+<div class="author">
+<strong>Anita Sharma</strong>
+<span>Owner, Urban Café</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="faq" id="faq">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+<p>Everything you need to know about our services.</p>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">How long does app development take?</div>
+<div class="faq-answer">Usually 2–4 weeks depending on requirements.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Can you publish on Play Store and App Store?</div>
+<div class="faq-answer">Yes, we handle full deployment on both platforms.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Do you provide maintenance and support?</div>
+<div class="faq-answer">Yes, 24/7 ongoing support is included.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Will I own the customer data?</div>
+<div class="faq-answer">Yes, you fully own all customer data.</div>
+</div>
+
+</div>
+
+</section>
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>Ready To Grow Your Restaurant Business?</h2>
+
+<p>
+Launch your own branded mobile app and start building direct customer relationships.
+</p>
+
+<ul>
+<li>✔ Free consultation and demo</li>
+<li>✔ No commitment required</li>
+<li>✔ Get started in weeks</li>
+</ul>
+
+<button class="cta-btn">Book Your Free Demo</button>
+
+</div>
+
+<div class="form-box">
+
+<h3>Schedule Free Demo</h3>
+
+<form id="demoForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<textarea placeholder="Tell us about your restaurant"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<a href="https://wa.me/919392159266?text=Hi%20Zentrix%20Technologies!%20I%20am%20interested%20in%20learning%20more%20about%20your%20restaurant%20app%20development%20services." 
+   class="whatsapp-float" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+<h3>Zentrix</h3>
+<p>Powering smarter restaurant businesses.</p>
+</div>
+
+<div>
+<h4>Services</h4>
+<ul>
+<li>Mobile App Development</li>
+<li>Online Ordering</li>
+<li>Table Reservation</li>
+<li>Loyalty Programs</li>
+</ul>
+</div>
+
+<div>
+<h4>Company</h4>
+<ul>
+<li>How It Works</li>
+<li>Testimonials</li>
+<li>FAQ</li>
+<li>Book Demo</li>
+</ul>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>+91 9392159266</p>
+<p>zentrextechnologies@gmail.com</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Zentrix Technologies. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+<script>
+
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+
+menuBtn.addEventListener('click',()=>{
+
+navLinks.classList.toggle('active');
+
+if(navLinks.classList.contains('active')){
+menuBtn.innerHTML='✕';
+}else{
+menuBtn.innerHTML='☰';
+}
+
+});
+
+document.querySelectorAll('a').forEach(link=>{
+
+link.addEventListener('click',()=>{
+navLinks.classList.remove('active');
+menuBtn.innerHTML='☰';
+});
+
+});
+
+</script>
+<script>
+
+// FAQ ACCORDION
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const answer = item.querySelector(".faq-answer");
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  });
+});
+
+// FORM SUBMIT
+document.getElementById("demoForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Demo request submitted successfully!");
+});
+
+</script>
+
+</body>
+</html>
